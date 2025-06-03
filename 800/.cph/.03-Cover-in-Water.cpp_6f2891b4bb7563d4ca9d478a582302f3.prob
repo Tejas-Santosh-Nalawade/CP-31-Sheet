@@ -1,1 +1,0 @@
-{"name":"Local: 03-Cover-in-Water","url":"d:\\CP\\CP-31 Sheet\\800\\03-Cover-in-Water.cpp","tests":[{"id":1748975383349,"input":"5\n3\n...\n7\n##....#\n7\n..#.#..\n4\n####\n10\n#...#..#.#\n","output":"2\n2\n5\n0\n2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\CP-31 Sheet\\800\\03-Cover-in-Water.cpp","group":"local","local":true}
