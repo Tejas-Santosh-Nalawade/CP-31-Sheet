@@ -14,7 +14,6 @@ const int score[10][10] = {
 	{1,1,1,1,1,1,1,1,1,1}
 };
 
-
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
