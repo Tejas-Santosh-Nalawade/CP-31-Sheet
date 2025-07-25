@@ -19,7 +19,7 @@ int main()
         else
         {
             long long gcd = a - b;
-            long long moves = min(b % gcd, gcd - b % gcd); // 1
+            long long moves = min(b % gcd, gcd - b % gcd);
             cout << gcd << " " << moves << "\n";
         }
     }
