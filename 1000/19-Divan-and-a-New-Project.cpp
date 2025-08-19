@@ -3,8 +3,8 @@ using namespace std;
 
 int main()
 {
-    int tt
-    cin >> tt
+    int tt;
+    cin >> tt;
     while (tt-)
     {
         long long n;
