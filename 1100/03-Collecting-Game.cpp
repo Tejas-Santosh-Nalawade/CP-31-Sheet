@@ -16,7 +16,7 @@ int main(){
         vector<ll>pre(n);
         sort(v.begin(),v.end());
         pre[0]=v[0].first;
-        for(int i=1;i<n;i++){//n
+        for(int i=1;i<n;i++){
             pre[i]=pre[i-1]+v[i].first;
         }
         vector<ll>ans(n);
