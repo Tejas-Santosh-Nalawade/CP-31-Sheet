@@ -13,13 +13,12 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		cin >> v[i].first;
-	} //? O(n)
+	} 
 
 	pair<int, int> globalVal = {0, -1};
 
-s
 	long long sum = 0;
-	for (int i = 0; i < n; i++) //? O(n)
+	for (int i = 0; i < n; i++) 
 		sum += v[i].first;
 
 
@@ -59,7 +58,7 @@ s
 		}
 
 		cout << sum << "\n";
-	} //? O(q)
+	}
 
 	return 0;
 }
