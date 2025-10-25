@@ -25,9 +25,9 @@ int main()
 		map<long long, long long> freq; 
 
 		for (int i = 0; i < n; i++) 
-			freq[v[i]]++; /
+			freq[v[i]]++; 
 
-		long long ans = 0; /
+		long long ans = 0; 
 
 		for (auto &[val, count] : freq)
 		{
