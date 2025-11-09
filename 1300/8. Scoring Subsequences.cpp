@@ -19,7 +19,7 @@ int main()
 			cin >> a[i];
 		}
 
-		vector<int> res; 
+		vector<int> res; 9. Gardener and the Array
 		for (int i = 0; i < n; i++) {
 			int l = 1, r = i + 1;
 			while (l <= r) {
