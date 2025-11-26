@@ -10,7 +10,7 @@ int main()
     cin >> n;
     vector<int> a(n), b(n);
     for (int i = 0; i < n; i++)
-    {
+    {26. WOW Factor
         cin >> a[i];
         --a[i];
     }
