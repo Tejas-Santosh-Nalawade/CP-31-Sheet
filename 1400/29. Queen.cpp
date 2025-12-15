@@ -4,26 +4,25 @@ using namespace std;
 void solve() {
 		int n;
 		cin >> n;
-		vector<bool> good(n);
-		vector<vector<int>> adj(n);
-
+		vector<bool> good(n); 
+		vector<vector<int>> adj(n); 
 		for (int i = 0; i < n; i++) {
 				int parent, type;
 				cin >> parent >> type;
-				if (type == 0) good[i] = true;
+				if (type == 0) good[i] = true; 
 				if (parent != -1) {
-						adj[parent - 1].push_back(i);
+						adj[parent - 1].push_back(i); 
 				}
 		}
 
-		vector<int> ans;
-		for (int i = 0; i < n; i++) {
-				if (good[i]) continue;
-				bool flag = true;
+		vector<int> ans; 
+		for (int i = 0; i < n; i++) { 
+				if (good[i]) continue; 
+				bool flag = true; 
 				for (auto x : adj[i]) {
-						if (good[x]) flag = false;
+						if (good[x]) flag = false; 
 				}
-				if (flag) ans.push_back(i + 1);
+				if (flag) ans.push_back(i + 1); 
 		}
 
 		if (ans.size()) {
@@ -32,13 +31,17 @@ void solve() {
 				}
 				cout << '\n';
 		} else {
-			cout << -1 << '\n';
+				cout << -1 << '\n'; 
+		}
+}
+
+int main() {
 		cin.sync_with_stdio(false);
 		cin.tie(NULL);
 		cout.tie(NULL);
-
-		int t = 1;
-		while (t--) {
-				solve();
+		int tt = 1;
+		while (tt--) {
+			solve();
 		}
 }
+
