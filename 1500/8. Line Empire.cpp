@@ -1,34 +1,30 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-#define int long long
-
-int32_t main() {
-		ios::sync_with_stdio(false);
-		cin.tie(NULL);
-		cout.tie(NULL);
-
-		int t;
-		cin >> t;
-		while (t--) {
-				int n, a, b;
-				cin >> n >> a >> b;
-		vector<int> x(n + 1);
-
-vector<int> suf(n + 2, 0);
-		suf[n] = x[n];
-		for (int i = n - 1; i >= 1; i--) {
-				suf[i] = suf[i + 1] + x[i];
-				}
-
-int ans = INT64_MAX;
-		for (int i = 0; i <= n; i++) {
-				int c = x[i] * (a + b) + (suf[i + 1] - (n - i) * x[i]) * b;
-						ans = min(ans, c);
-				}
-
-				cout << ans << '\n';
-		}
-
-		return 0;
+using lol=long long int;
+#define endl "\n"
+const lol inf=1e18+8;
+ 
+int main()
+{
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+int _=1;
+cin>>_;
+while(_--)
+{
+    int n;
+    lol a,b;
+    cin>>n>>a>>b;
+    vector<lol> x(n+1),p(n+1);
+    x[0]=0;
+    for(int i=1;i<=n;i++)   cin>>x[i];
+    partial_sum(x.begin(),x.end(),p.begin());
+    lol ans=inf;
+    for(int i=0;i<=n;i++)
+    {
+        ans=min(ans,(a+b)*(x[i]-x[0])+b*(p[n]-p[i]-(n-i)*x[i]));
+    }
+    cout<<ans<<endl;
+}
+return 0;
 }
