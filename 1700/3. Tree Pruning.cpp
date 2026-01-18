@@ -34,6 +34,7 @@ void solve() {
 	}
 
 	vector<long long> maxDepthOfNode(numNodes + 1, 0);
+    
 	vector<long long> nodesAtLevel(numNodes + 1, 0);
 
 	depthFirstSearch(1, -1, 1, nodesAtLevel, maxDepthOfNode, adj);
