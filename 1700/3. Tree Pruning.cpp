@@ -2,7 +2,6 @@
 
 using namespace std;
 
-using namespace std;
 
 long long maxLevel;
 
