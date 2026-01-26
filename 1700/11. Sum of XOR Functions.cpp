@@ -1,52 +1,70 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+#define int long long
 
-constexpr int MAX_N = 300005; 
-constexpr int MODULO = 998244353;
+int M = 998244353;
 
-int arraySize; 
-int numbers[MAX_N];
-void addModulo(int &a, int b) {
-	a += b;
-	if (a >= MODULO)
-		a -= MODULO;
+
+int fun(vector<int> a){
+    int n = a.size();
+    int pref[n + 1];
+    pref[0] = 0;
+    for (int i = 1; i <= n; i++){
+        pref[i] = a[i - 1];
+        pref[i] ^= pref[i - 1];
+    }
+
+    int ans = 0;
+    int c0 = 0, c1 = 0, s0 = 0, s1 = 0;
+
+    for (int i = 0; i <= n; i++){
+
+        if (pref[i] == 1){
+            ans += (c0 * i) % M - s0;
+            ans %= M;
+        }
+        else{
+            ans += (c1 * i) % M - s1;
+            ans %= M;
+        }
+
+
+        c0 += pref[i] == 0;
+        s0 += (pref[i] == 0) * i;
+        c1 += pref[i] == 1;
+        s1 += (pref[i] == 1) * i;
+
+        s0 %= M;
+        s1 %= M;
+    }
+
+    ans = (ans + M) % M;
+
+    return ans;
+
 }
 
-int sumModulo(int a, int b) {
-	a += b;
-	if (a >= MODULO)
-		a -= MODULO;
-	if (a < 0)
-		a += MODULO;
-	return a;
+int32_t main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int n; cin >> n;
+    int a[n];
+    for (int i = 0; i < n; i++) cin >> a[i];
+
+    int ans = 0;
+    for (int j = 0; j < 30; j++){
+        vector<int> b;
+        for (int i = 0; i < n; i++){
+            b.push_back((a[i] & (1 << j)) > 0);
+        }
+
+        ans += ((1 << j) * fun(b)) % M;
+        ans %= M;
+    }
+
+    cout << ans << '\n';
+
 }
-
-int multiplyModulo(int a, int b) {
-	return (a * 1LL * b) % MODULO;
-}
-
-int main() {
-	std::cin >> arraySize; 
-	for (int i = 0; i < arraySize; ++i)
-		std::cin >> numbers[i]; 
-
-	int result = 0; 
-	for (int bitPosition = 0; bitPosition < 30; ++bitPosition) {
-		int currentSum = 0; 
-		std::vector<int> count(2, 0); 
-		std::vector<int> leftSum(2, 0); 
-		count[0] = 1; 
-		int xoredValue = 0; 
-		
-		for (int i = 0; i < arraySize; ++i) {
-			xoredValue ^= ((numbers[i] >> bitPosition) & 1);
-			int rightSum = multiplyModulo(count[xoredValue ^ 1], i + 1);
-			addModulo(currentSum, sumModulo(rightSum, -leftSum[xoredValue ^ 1]));
-			++count[xoredValue];
-			addModulo(leftSum[xoredValue], i + 1);
-		}
-		addModulo(result, multiplyModulo(1 << bitPosition, currentSum));
-	}
-
-	std::cout << result << std::endl;   
-}
+ 
