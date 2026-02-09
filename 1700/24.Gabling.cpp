@@ -1,10 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
-
 using ll = long long;
 
 struct SegmentTree {
