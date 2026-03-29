@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using namespace std;
 
 const int NUM_BITS = 30;
 const int MAX_SIZE = 100003;
