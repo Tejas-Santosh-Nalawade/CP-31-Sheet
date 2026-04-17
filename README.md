@@ -5,7 +5,7 @@ Current progress (CP-31 dashboard):
 
 ![CP-31 Progress](image/progress.jpg)
 
-This repository contains my C++ solutions for the CP-31 competitive programming sheet.
+This repository has my C++ solutions for the CP-31 competitive programming sheet.
 
 ## What I am doing
 - Solving problems daily from rating 800 to 1900.
